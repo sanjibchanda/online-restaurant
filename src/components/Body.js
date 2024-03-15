@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
 import ProductsCard from "./ProductsCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
+import { REST_API } from "../utils/Constants";
 
 const Body = () => {
   const [products, setProducts] = useState([]); // default state value
   const [productList, setProductList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+  /* with corsproxy:
   const prodApi =
-    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
-
-  // with corsproxy:
-  // "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+  */
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const response = await fetch(prodApi);
+    const response = await fetch(REST_API);
 
     const jsonData = await response.json();
 
@@ -30,6 +31,8 @@ const Body = () => {
       jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
+
+    console.log(jsonData);
   };
 
   return productList.length === 0 ? (
@@ -86,7 +89,9 @@ const Body = () => {
         </div>
         <div className="product-container">
           {productList.map((product) => (
-            <ProductsCard key={product.info.id} prodData={product} />
+            <Link to={"/restaurants/" + product.info.id} key={product.info.id}>
+              <ProductsCard prodData={product} />
+            </Link>
           ))}
         </div>
       </div>

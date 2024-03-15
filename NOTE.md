@@ -76,8 +76,13 @@
    ref: https://legacy.reactjs.org/docs/lists-and-keys.html
 
 3. two type of approach to load webpage:
+
    1. load -> API -> render
    2. load -> render -> API -> render (react)
+
+4. 2 types of Routing in web apps:
+   - client side Routing
+   - server side Routing
 
 ---
 

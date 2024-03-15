@@ -32,3 +32,6 @@
    "last 2 chrome version",
    "last 2 firefox version"
    ]
+
+10. install React Router:
+    => npm i react-router-dom
