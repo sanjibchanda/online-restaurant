@@ -64,6 +64,8 @@
 25. what is instance in react?
 26. Optional Chaining?
 27. fetch post call?
+28. why do we always right super() in react class component?
+29. React lifecycle method
 
 ---
 

@@ -332,3 +332,14 @@ body {
   background: #ff6e01;
   color: #fff;
 }
+.about_wrap {
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+  display: grid;
+}
+.user-card {
+  background: #f6f6f6;
+  padding: 1rem;
+}
