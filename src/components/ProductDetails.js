@@ -1,23 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Shimmer from "./Shimmer";
-import { LIST_IMG_URL, MENU_API } from "../utils/Constants";
+import { LIST_IMG_URL } from "../utils/Constants";
 import { useParams } from "react-router-dom";
+import useProductDetails from "../utils/useProductDetails";
 
 const ProductDetails = () => {
-  const [prodInfo, setProdInfo] = useState(null);
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(MENU_API + resId);
-    const jsonData = await data.json();
-
-    console.log(jsonData);
-    setProdInfo(jsonData);
-  };
+  const prodInfo = useProductDetails(resId);
 
   if (prodInfo === null) return <Shimmer />;
 

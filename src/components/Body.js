@@ -3,6 +3,7 @@ import ProductsCard from "./ProductsCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { REST_API } from "../utils/Constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [products, setProducts] = useState([]); // default state value
@@ -34,6 +35,11 @@ const Body = () => {
 
     console.log(jsonData);
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false)
+    return <h1>you are offline, please check your internet connection</h1>;
 
   return productList.length === 0 ? (
     <Shimmer />

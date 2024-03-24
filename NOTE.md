@@ -83,8 +83,17 @@
    2. load -> render -> API -> render (react)
 
 4. 2 types of Routing in web apps:
+
    - client side Routing
    - server side Routing
+
+5. Bundling method:
+
+   - Chunking
+   - Code Splitting
+   - Dynamic Bundling
+   - Lazy Loading
+   - on demand loading
 
 ---
 
