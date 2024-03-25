@@ -44,13 +44,13 @@ const Body = () => {
   return productList.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="container">
-      <div className="body_wrapper">
-        <div className="top-box">
-          <div className="searchBox">
+    <div className="container mx-auto px-3">
+      <div className="my-8">
+        <div className="flex flex-wrap gap-2 justify-between items-center">
+          <div className="flex gap-2">
             <input
               type="text"
-              className="search"
+              className="form-control"
               placeholder="search by name"
               value={searchText}
               onChange={(e) => {
@@ -58,7 +58,7 @@ const Body = () => {
               }}
             />
             <button
-              className="search-btn"
+              className="btn btn-primary"
               onClick={() => {
                 filteredSearch = products.filter((prod) =>
                   prod.info.name
@@ -71,9 +71,9 @@ const Body = () => {
               search
             </button>
           </div>
-          <div className="btn-box">
+          <div className="flex gap-2">
             <button
-              className="filter-btn"
+              className="btn btn-primary"
               onClick={() => {
                 filteredList = products.filter(
                   (prod) => prod.info.avgRating > 4.4
@@ -84,7 +84,7 @@ const Body = () => {
               Ratings 4.5+
             </button>
             <button
-              className="filter-btn"
+              className="btn btn-primary"
               onClick={() => {
                 setProductList(products);
               }}
@@ -93,7 +93,7 @@ const Body = () => {
             </button>
           </div>
         </div>
-        <div className="product-container">
+        <div className="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
           {productList.map((product) => (
             <Link to={"/restaurants/" + product.info.id} key={product.info.id}>
               <ProductsCard prodData={product} />

@@ -35,3 +35,6 @@
 
 10. install React Router:
     => npm i react-router-dom
+
+11. install tailwind css (through parcel):
+    - https://tailwindcss.com/docs/guides/parcel

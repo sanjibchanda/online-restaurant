@@ -9,14 +9,19 @@ const Error = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="error_box">
+      <div className="container mx-auto px-3">
+        <div className="flex flex-col justify-center items-center w-full h-lvh">
           <img src={error} alt="logo" className="error-img" />
-          <h2>
+          <h2 className="text-4xl font-medium">
             {err.status} {err.statusText}
           </h2>
           <p>
-            <Link to="/">Go to Home Page</Link>
+            <Link
+              to="/"
+              className="text-primary-dark rounded-full my-3 px-6 py-3 inline-block transition duration-500 ease-in-out hover:bg-primary-dark hover:text-white"
+            >
+              Go to Home Page
+            </Link>
           </p>
         </div>
       </div>

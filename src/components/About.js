@@ -5,8 +5,8 @@ import UserClass from "./UserClass";
 // function Component
 // const About = () => {
 //   return (
-//     <div className="container">
-//       <div className="about_wrap">
+//     <div className="container mx-auto px-3">
+//       <div className="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-8">
 //         <User name="Sanjib" location="kolkata" contact="@sanjib" />
 //         <UserClass name="Sanjib Chanda" location="Asansol" contact="@chanda" />
 //       </div>
@@ -24,8 +24,8 @@ class About extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="about_wrap">
+      <div className="container mx-auto px-3">
+        <div className="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-8">
           <UserClass
             name="Sanjib Chanda"
             location="Asansol"

@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply py-2 px-5 bg-gray-500 text-white font-normal rounded-sm hover:bg-gray-700 focus:outline-none;
+  }
+  .btn-primary {
+    @apply bg-primary-dark text-white;
+  }
+  .form-control {
+    @apply p-2 border border-gray-300 border-solid rounded-sm h-11;
+  }
+}
+
+.shimmer-card {
+  @apply flex justify-center items-center h-[400px] bg-gray-100;
+
+  img {
+    @apply w-[120px] opacity-25 grayscale;
+  }
+}
+
+.footer {
+  margin-top: auto;
+}
