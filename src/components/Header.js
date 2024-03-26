@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("login");
 
   const onlineStatus = useOnlineStatus();
+
+  const { loggedInUser } = useContext(UserContext);
 
   return (
     <div className="bg-primary-light">
@@ -35,6 +38,7 @@ const Header = () => {
                 <Link to="/cart">Cart</Link>
               </li>
               <li className="p-2.5">status: {onlineStatus ? "on" : "off"} </li>
+              <li className="p-2.5 font-medium">{loggedInUser}</li>
               <button
                 className="btn btn-primary"
                 onClick={() => {

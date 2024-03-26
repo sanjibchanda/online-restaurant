@@ -1,14 +1,21 @@
-import { useEffect, useState } from "react";
-import ProductsCard from "./ProductsCard";
+import { useEffect, useState, useContext } from "react";
+import ProductsCard, { isNewlyOnboard } from "./ProductsCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { REST_API } from "../utils/Constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [products, setProducts] = useState([]); // default state value
   const [productList, setProductList] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const ProductsCardIsNewlyOnboard = isNewlyOnboard(ProductsCard);
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
+
+  // console.log(productList);
 
   /* with corsproxy:
   const prodApi =
@@ -71,6 +78,16 @@ const Body = () => {
               search
             </button>
           </div>
+          <div className="flex gap-2 items-center">
+            <label>User name:</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="name"
+              value={loggedInUser}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </div>
           <div className="flex gap-2">
             <button
               className="btn btn-primary"
@@ -93,10 +110,18 @@ const Body = () => {
             </button>
           </div>
         </div>
-        <div className="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+        <div className="grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 mt-6">
           {productList.map((product) => (
-            <Link to={"/restaurants/" + product.info.id} key={product.info.id}>
-              <ProductsCard prodData={product} />
+            <Link
+              to={"/restaurants/" + product.info.id}
+              key={product.info.id}
+              className="block relative"
+            >
+              {product.info.isNewlyOnboarded ? (
+                <ProductsCardIsNewlyOnboard prodData={product} />
+              ) : (
+                <ProductsCard prodData={product} />
+              )}
             </Link>
           ))}
         </div>

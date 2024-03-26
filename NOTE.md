@@ -66,6 +66,10 @@
 27. fetch post call?
 28. why do we always right super() in react class component?
 29. React lifecycle method
+30. higher order component?
+31. Lifting State Up ?
+    - https://react.dev/learn/sharing-state-between-components#lifting-state-up-by-example
+32. Props drilling ?
 
 ---
 
@@ -109,6 +113,7 @@
 
 1. json viewer for chrome browser
 2. cors chrome extension
+3. React-developer-tools for Chrome Extension
 
 # Reference:
 
