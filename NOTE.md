@@ -70,6 +70,7 @@
 31. Lifting State Up ?
     - https://react.dev/learn/sharing-state-between-components#lifting-state-up-by-example
 32. Props drilling ?
+33. Redux toolkit ?
 
 ---
 
@@ -99,6 +100,24 @@
    - Lazy Loading
    - on demand loading
 
+6. Redux / Zustand :
+
+   - redux used Immer.js behind the scenes
+   - RTK query
+
+7. redux toolkit diagram:
+
+   - [click btn] ---> dispatch(action) ---> reducer function ---> update slice of the store
+   - slice of the store -----> [selector] -----> cart(updated)
+
+8. Redux Toolkit
+   - install @reduxjs/toolkit and react-redux
+   - Build our store
+   - connect our store to our app
+   - Slice (cartSlice)
+   - Dispatch action
+   - Selector
+
 ---
 
 # issus solved:
@@ -114,6 +133,7 @@
 1. json viewer for chrome browser
 2. cors chrome extension
 3. React-developer-tools for Chrome Extension
+4. redux-devtools for Chrome Extension
 
 # Reference:
 

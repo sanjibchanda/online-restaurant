@@ -1,7 +1,15 @@
 import React from "react";
 import { LIST_IMG_URL } from "../utils/Constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
+
   return (
     <>
       <ul>
@@ -25,7 +33,10 @@ const ItemList = ({ items }) => {
                 alt="images"
                 className="w-[120px] h-[120px] rounded-lg object-cover object-center"
               />
-              <button className="btn btn-primary self-start text-sm absolute inset-x-0 -bottom-1 w-[70px] m-auto">
+              <button
+                className="btn btn-primary self-start text-sm absolute inset-x-0 -bottom-1 w-[70px] m-auto"
+                onClick={() => handleAddItem(item)}
+              >
                 Add
               </button>
             </div>

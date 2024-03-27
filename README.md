@@ -37,4 +37,10 @@
     => npm i react-router-dom
 
 11. install tailwind css (through parcel):
-    - https://tailwindcss.com/docs/guides/parcel
+    -> https://tailwindcss.com/docs/guides/parcel
+
+12. install Redux Toolkit :
+    -> npm i @reduxjs/toolkit
+
+13. install react-redux :
+    -> npm i react-redux
